@@ -6,6 +6,7 @@ process.env.MONGODB_URI = 'mongodb://localhost/testing';
 const faker = require('faker');
 const superagent = require('superagent');
 const Recipe = require('../model/recipe');
+const ChristmasList = require('../model/christmas-list');
 const server = require('../lib/server');
 
 const apiURL = `http://localhost:${process.env.PORT}/api`;
@@ -18,11 +19,27 @@ const recipeMockCreate = () => {
 };
 
 const recipeMockCreateMany = (howMany) => {
-  // TODO: validate if its s number
   return Promise.all(new Array(howMany)
     .fill(0)
     .map(() => {
       recipeMockCreate();
+    }));
+};
+
+const christmasListMockCreate = () => {
+  return new ChristmasList({
+    name : faker.name.findName(),
+    list : faker.lorem.words(100),
+    pricelimit : faker.lorem.words(100),
+    secretsanta : faker.name.findName(),
+  }).save();
+};
+
+const recipeMockCreateMany = (howMany) => {
+  return Promise.all(new Array(howMany)
+    .fill(0)
+    .map(() => {
+      christmasListMockCreate();
     }));
 };
 
@@ -114,9 +131,10 @@ describe('/api/recipes', () => {
     });
   });
 });
+
 describe('/api/christmas-list', () => {
   beforeAll(server.start);
-  afterEach(() => Recipe.remove({})); //if we rmove after all, hopefullly sync wont break but if we do after each we have cleaner tests
+  afterEach(() => ChristmasList.remove({})); //if we rmove after all, hopefullly sync wont break but if we do after each we have cleaner tests
   afterAll(server.stop);
 
   describe('POST /api/recipes', () => {
@@ -135,7 +153,7 @@ describe('/api/christmas-list', () => {
   });
   describe('GET /api/christmas-lists', () => {
     test('should return 10 notes where 10 is the size of the page by default if there is no error', () =>{
-      return recipeMockCreateMany(100)
+      return christmasListMockCreateMany(100)
         .then(() =>{
           return superagent.get(`${apiURL}/christmas-lists`);
         })
@@ -149,7 +167,7 @@ describe('/api/christmas-list', () => {
   });
   describe('GET /api/recipe:id', () => {
     test('should respond with recipes and 200 status code if there is no error', () =>{
-      recipeMockCreate()
+      christmasListMockCreate()
         .then(recipe => {
           return superagent.get(`${apiURL}/christmas-lists/${recipe.id}`);
         })
@@ -162,7 +180,7 @@ describe('/api/christmas-list', () => {
     test('should update and respond with 200 status code if there is no error', () =>{
       let recipeToUpdate = null;
 
-      return recipeMockCreate()
+      return christmasListMockCreate()
         .then(recipe => {
           recipeToUpdate = recipe;
           return superagent.put(`${apiURL}/christmas-lists/${recipe.id}`)
@@ -185,7 +203,7 @@ describe('/api/christmas-list', () => {
   });
   describe('DELETE /api/christmas-lists:id', () => {
     test('should respond with 204 status code if there is no error', () =>{
-      return recipeMockCreate()
+      return christmasListMockCreate()
         .then(recipe => {
           return superagent.delete(`${apiURL}/christmas-lists/${recipe.id}`);
         })
