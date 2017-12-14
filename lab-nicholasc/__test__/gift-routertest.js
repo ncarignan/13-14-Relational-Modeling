@@ -71,6 +71,13 @@ describe('/api/christmas-lists', () => {
   describe('GET /api/christmas-lists:id', () => {
     test('should respond with christmas lists and 200 status code if there is no error', () =>{
       let giftToTest = null;
+
+      return giftMock.create()
+        .then(mock => {
+          giftToTest = mock.gift;
+          return superagent.get(`${apiURL}/gifts/${christmasList.id}`);
+
+        });
       christmasListMockCreate()
         .then(christmasList => {
           return superagent.get(`${apiURL}/christmas-lists/${christmasList.id}`);

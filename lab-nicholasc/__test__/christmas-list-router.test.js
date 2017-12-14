@@ -1,53 +1,52 @@
 'use strict';
 
-process.env.PORT = 7000;
-process.env.MONGODB_URI = 'mongodb://localhost/testing';
+require('./lib/setup');
 
-const faker = require('faker');
 const superagent = require('superagent');
-const Recipe = require('../model/recipe');
 const server = require('../lib/server');
-
-const giftMock = require('./lib/gift-mock');
 const christmasListMock = require('./lib/christmas-list-mock');
-const apiURL = `http://localhost:${process.env.PORT}/api`;
+
+const apiURL = `http://localhost:${process.env.PORT}/api/christmas-lists`;
 
 
 describe('/api/christmas-lists', () => {
   beforeAll(server.start);
-  afterEach(() => christmasListMock.remove({})); //if we rmove after all, hopefullly sync wont break but if we do after each we have cleaner tests
   afterAll(server.stop);
+  afterEach(christmasListMock.remove);
 
   describe('POST /api/christmas-lists', () => {
-    test('should respond with a christmas list and 200 status code if there is no error',
-      () =>{
-        return superagent.post(`${apiURL}/christmas-lists`)
-          .send({
-            name : 'nicholas',
-            list : faker.lorem.words(5).split(' '),
-            pricelimit : faker.random.number(100),
-            secretsanta : faker.name.findName(),
-          })
-          .then(response => {
-            expect(response.status).toEqual(200);
-            expect(response.body.category).toEqual(tempChristmasListMock._id.toString());
-          });
-      });
+    test('should respond with a christmas list and 200 status code if there is no error',() =>{
+      return superagent.post(apiURL)
+        .send({
+          name : 'nicholas',
+          list : ['tonka truck', 'gi joe'],
+          pricelimit : 100,
+          secretsanta : 'vinicio',
+        })
+        .then(response => {
+          expect(response.status).toEqual(200);
+          expect(response.body.list).toEqual(['tonka truck', 'gi joe']);
+        });
+    });
+
+    test('should return a 409 error due to duplicate name', () =>{
+      return christmasListMock.create()
+        .then(christmasList => {
+          return superagent.post(apiURL)
+            .send({
+              name : christmasList.name,
+              list : christmasList.list,
+              pricelimit : christmasList.pricelimit,
+              secretsanta : christmasList.secretsanta,
+            });
+        })
+        .then(Promise.reject)
+        .catch(response => {
+          expect(response.status).toEqual(409);
+        });
+    });
   });
 
-  test('should return a 409 error due to duplicate name', () =>{
-    return christmasListMock.create()
-      .then(christmasList => {
-        return superagent.post(`${apiURL}/christmas-lists`)
-          .send({
-            name : christmaList.name,
-            list : faker.lorem.words(5).split(' '),
-            pricelimit : faker.random.number(100),
-            secretsanta : faker.name.findName(),
-          });
-        //TODO: this needs its expects etc
-      });
-  });
   //TODO: this is a new one too
   test('get :id 200 if no errors', () => {
     let tempChristmasListMock;

@@ -11,7 +11,7 @@ christmasListMock.create = () => {
     list : faker.lorem.words(5).split(' '),
     pricelimit : faker.random.number(100),
     secretsanta : faker.name.findName(),
-  });
+  }).save();
 };
 christmasListMock.createMany = (howMany) => {
   return Promise.all(new Array(howMany).fill(0)

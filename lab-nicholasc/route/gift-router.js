@@ -1,49 +1,49 @@
 'use strict';
 
 const {Router} = require('express');
-
 const jsonParser = require('body-parser').json();
+const Gift = require('../model/gift');
 
-const ChristmasList = require('../model/christmas-list');
 const logger = require('../lib/logger');
 const httpErrors = require('http-errors');
 
-const christmasListRouter = module.exports = new Router();
+const giftRouter = module.exports = new Router();
 
-christmasListRouter.post('/api/christmas-lists', jsonParser, (request, response, next) => {
+giftRouter.post('/api/gifts', jsonParser, (request, response, next) => {
   logger.log('info', 'POST - processing request');
   if(!request.body.name || !request.body.list || !request.body.pricelimit || !request.body.secretsanta) {
     return next(httpErrors(400, 'name, list, pricelimit, and secretsanta to be defined'));
   }
-  return new ChristmasList(request.body).save()
-    .then(christmasList => {
-      logger.log('info', 'responding with a status of 200- sending christmasList');
-      response.json(christmasList);
+  return new Gift(request.body).save()
+    .then(gift => {
+      logger.log('info', 'responding with a status of 200- sending gift');
+      response.json(gift);
     })
-    .catch(next);
+    .catch(error => next(error));
 });
-giftRouter.get('/api/christmas-lists/', (request, response, next) => {
+
+giftRouter.get('/api/gifts', (request, response, next) => {
   const PAGE_SIZE = 10;
   let {page = '0'} = request.query;
-  page - Number(page);
+  page = Number(page);
   if(isNaN(page))
     page = 0;
   page = page < 0 ? 0 : page;
-  let allChristmasLists = null;
+  let allGifts = null;
 
-  return ChristmasList.find({})
+  return Gift.find({})
     .skip(page * PAGE_SIZE)
     .limit(PAGE_SIZE)
-    .then(christmasLists => {
-      allChristmasLists = christmasLists;
-      return ChristmasList.find({}).count();
+    .then(gifts => {
+      allGifts = gifts;
+      return Gift.find({}).count();
     })
-    .then(christmasListCount => {
+    .then(giftCount => {
       let responseData = {
-        count : christmasListCount,
-        data : allChristmasLists,
+        count : giftCount,
+        data : allGifts,
       };
-      let lastPage = Math.floor(christmasListCount / PAGE_SIZE);
+      let lastPage = Math.floor(giftCount / PAGE_SIZE);
       response.links({
         next : `http://localhost:${process.env.PORT}/api/notes?page=${page === lastPage ? lastPage : page +1}`,
         prev : `http://localhost:${process.env.PORT}/api/notes?page=${page < 1 ? 0 : page -1}`,
@@ -53,40 +53,10 @@ giftRouter.get('/api/christmas-lists/', (request, response, next) => {
     })
     .catch(next);
 });
-christmasListRouter.get('/api/christmas-lists/', (request, response, next) => {
-  const PAGE_SIZE = 10;
-  let {page = '0'} = request.query;
-  page - Number(page);
-  if(isNaN(page))
-    page = 0;
-  page = page < 0 ? 0 : page;
-  let allChristmasLists = null;
 
-  return ChristmasList.find({})
-    .skip(page * PAGE_SIZE)
-    .limit(PAGE_SIZE)
-    .then(christmasLists => {
-      allChristmasLists = christmasLists;
-      return ChristmasList.find({}).count();
-    })
-    .then(christmasListCount => {
-      let responseData = {
-        count : christmasListCount,
-        data : allChristmasLists,
-      };
-      let lastPage = Math.floor(christmasListCount / PAGE_SIZE);
-      response.links({
-        next : `http://localhost:${process.env.PORT}/api/notes?page=${page === lastPage ? lastPage : page +1}`,
-        prev : `http://localhost:${process.env.PORT}/api/notes?page=${page < 1 ? 0 : page -1}`,
-        last : `http://localhost:${process.env.PORT}/api/notes?page=${lastPage}`,
-      });
-      response.json(responseData);
-    })
-    .catch(next);
-});
-christmasListRouter.get('/api/christmas-lists/:id', (request, response, next) => {
+giftRouter.get('/api/gifts/:id', (request, response, next) => {
   logger.log('info', 'GET - processing a request');
-  return ChristmasList.findById(request.params.id)
+  return Gift.findById(request.params.id)
     .then(christmasList => {
       if(!christmasList){
         throw httpErrors(404, 'christmasList not found');
@@ -97,38 +67,38 @@ christmasListRouter.get('/api/christmas-lists/:id', (request, response, next) =>
 });
 giftRouter.get('/api/gifts/:id', (request, response, next) => {
   logger.log('info', 'GET - processing a request');
-  return ChristmasList.findById(request.params.id)
+  return Gift.findById(request.params.id)
     .populate('christmasList')
-    .then(christmasList => {
-      if(!christmasList){
-        throw httpErrors(404, 'christmasList not found');
+    .then(gift => {
+      if(!gift){
+        throw httpErrors(404, 'gift not found');
       }
       logger.log('info', 'GET - returning a 200 status code');
-      return response.json(christmasList);
+      return response.json(gift);
     }).catch(next);
 });
 
-christmasListRouter.delete('/api/christmas-lists/:id', (request, response, next) => {
-  return ChristmasList.findByIdAndRemove(request.params.id)
-    .then(christmasList => {
-      if(!christmasList){
-        throw httpErrors(404, 'christmasList not found');
+giftRouter.delete('/api/gifts/:id', (request, response, next) => {
+  return Gift.findByIdAndRemove(request.params.id)
+    .then(gift => {
+      if(!gift){
+        throw httpErrors(404, 'gift not found');
       }
       logger.log('info', 'DELETE - returning a 204 status code');
       return response.sendStatus(204);
     }).catch(next);
 
 });
-christmasListRouter.put('/api/christmas-lists/:id', jsonParser, (request, response, next) => {
+giftRouter.put('/api/gifts/:id', jsonParser, (request, response, next) => {
   //this configures mongos update
   let options = {runValidators : true, new : true};
-  return ChristmasList.findByIdAndUpdate(request.params.id, request.body, options)
-    .then(christmasList => {
-      if(!christmasList){
-        throw httpErrors(404, 'christmasList not found');
+  return Gift.findByIdAndUpdate(request.params.id, request.body, options)
+    .then(gift => {
+      if(!gift){
+        throw httpErrors(404, 'gift not found');
       }
       logger.log('info', 'Put - returning a 200 status code');
-      return response.json(christmasList);
+      return response.json(gift);
     }).catch(next);
 
 });

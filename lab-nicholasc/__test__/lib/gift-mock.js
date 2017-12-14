@@ -26,6 +26,7 @@ giftMock.create = () => {
 };
 giftMock.createMany = (howMany) => {
   let mock = {};
+  
   return christmasListMock.create()
     .then(christmasList => {
       mock.christmasList = christmasList;

@@ -35,7 +35,7 @@ describe('/api/christmas-lists', () => {
   });
   describe('GET /api/christmas-lists', () => {
     test('should return 10 christmas lists where 10 is the size of the page by default if there is no error', () =>{
-      return noteMock.CreateMany(100)
+      return noteMockCreateMany(100)
         .then(() =>{
           return superagent.get(`${apiURL}/christmas-lists`);
         })
