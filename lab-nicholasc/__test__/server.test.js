@@ -89,19 +89,19 @@ describe('/api/recipes', () => {
   });
   describe('PUT /api/recipes:id', () => {
     test('should update and respond with 200 status code if there is no error', () =>{
-      let recipeToUpdate = null;
+      let christmasListToUpdate = null;
 
       return recipeMockCreate()
         .then(recipe => {
-          recipeToUpdate = recipe;
+          christmasListToUpdate = recipe;
           return superagent.put(`${apiURL}/recipes/${recipe.id}`)
             .send({title : 'grilled cheese'});
         })
         .then(response => {//only access to response but we want to test original
           expect(response.status).toEqual(200);
           expect(response.body.title).toEqual('grilled cheese');
-          expect(response.body.content).toEqual(recipeToUpdate.content);
-          expect(response.body._id).toEqual(recipeToUpdate.id.toString());
+          expect(response.body.content).toEqual(christmasListToUpdate.content);
+          expect(response.body._id).toEqual(christmasListToUpdate.id.toString());
         });
     });
     test('should respond with a 404 error code if id invalid', () =>{
@@ -132,27 +132,27 @@ describe('/api/recipes', () => {
   });
 });
 
-describe('/api/christmas-list', () => {
+describe('/api/christmas-lists', () => {
   beforeAll(server.start);
   afterEach(() => ChristmasList.remove({})); //if we rmove after all, hopefullly sync wont break but if we do after each we have cleaner tests
   afterAll(server.stop);
 
-  describe('POST /api/recipes', () => {
-    test('should respond with a recipe and 200 status code if there is no error',
+  describe('POST /api/christmas-lists', () => {
+    test('should respond with a christmas list and 200 status code if there is no error',
       () =>{
-        let recipeToPost = {
+        let christmasListToPost = {
           title : faker.lorem.words(10),
           content : faker.lorem.words(100),
         };
         return superagent.post(`${apiURL}/christmas-lists`)
-          .send(recipeToPost)
+          .send(christmasListToPost)
           .then(response => {
             expect(response.status).toEqual(200);
           });
       });
   });
   describe('GET /api/christmas-lists', () => {
-    test('should return 10 notes where 10 is the size of the page by default if there is no error', () =>{
+    test('should return 10 christmas lists where 10 is the size of the page by default if there is no error', () =>{
       return christmasListMockCreateMany(100)
         .then(() =>{
           return superagent.get(`${apiURL}/christmas-lists`);
@@ -165,11 +165,11 @@ describe('/api/christmas-list', () => {
 
     });
   });
-  describe('GET /api/recipe:id', () => {
-    test('should respond with recipes and 200 status code if there is no error', () =>{
+  describe('GET /api/christmas-lists:id', () => {
+    test('should respond with christmas lists and 200 status code if there is no error', () =>{
       christmasListMockCreate()
-        .then(recipe => {
-          return superagent.get(`${apiURL}/christmas-lists/${recipe.id}`);
+        .then(christmasList => {
+          return superagent.get(`${apiURL}/christmas-lists/${christmasList.id}`);
         })
         .then(response => {
           expect(response.status).toEqual(200);
@@ -178,19 +178,19 @@ describe('/api/christmas-list', () => {
   });
   describe('PUT /api/christmas-lists:id', () => {
     test('should update and respond with 200 status code if there is no error', () =>{
-      let recipeToUpdate = null;
+      let christmasListToUpdate = null;
 
       return christmasListMockCreate()
-        .then(recipe => {
-          recipeToUpdate = recipe;
+        .then(christmasList => {
+          christmasListToUpdate = christmasList;
           return superagent.put(`${apiURL}/christmas-lists/${recipe.id}`)
             .send({title : 'grilled cheese'});
         })
         .then(response => {//only access to response but we want to test original
           expect(response.status).toEqual(200);
           expect(response.body.title).toEqual('grilled cheese');
-          expect(response.body.content).toEqual(recipeToUpdate.content);
-          expect(response.body._id).toEqual(recipeToUpdate.id.toString());
+          expect(response.body.content).toEqual(christmasListToUpdate.content);
+          expect(response.body._id).toEqual(christmasListToUpdate.id.toString());
         });
     });
     test('should respond with a 404 error code if id invalid', () =>{
@@ -204,8 +204,8 @@ describe('/api/christmas-list', () => {
   describe('DELETE /api/christmas-lists:id', () => {
     test('should respond with 204 status code if there is no error', () =>{
       return christmasListMockCreate()
-        .then(recipe => {
-          return superagent.delete(`${apiURL}/christmas-lists/${recipe.id}`);
+        .then(christmasList => {
+          return superagent.delete(`${apiURL}/christmas-lists/${christmasList.id}`);
         })
         .then(response => {
           expect(response.status).toEqual(204);
