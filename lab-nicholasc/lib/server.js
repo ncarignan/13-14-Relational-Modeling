@@ -14,7 +14,9 @@ mongoose.connect(process.env.MONGODB_URI, {useMongoClient : true});
 
 app.use(require('./logger-middleware'));
 const recipeRoutes = require('../route/recipe-router');
+const christmasListRoutes = require('../route/christmas-list-router');
 app.use(recipeRoutes);
+app.use(christmasListRoutes);
 
 app.all('*', (request, response) => {
   logger.log('info', 'returning a 404 from the catch-all route');
