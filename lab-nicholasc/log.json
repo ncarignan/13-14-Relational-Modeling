@@ -400,3 +400,126 @@
 {"level":"info","message":"Processing : DELETE on : /api/christmas-lists/","timestamp":"2017-12-14T03:03:27.962Z"}
 {"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T03:03:27.962Z"}
 {"level":"info","message":"Server is off","timestamp":"2017-12-14T03:03:27.965Z"}
+{"level":"info","message":"Server is linstening on port 7000","timestamp":"2017-12-14T03:23:40.911Z"}
+{"level":"info","message":"Processing : POST on : /api/recipes","timestamp":"2017-12-14T03:23:40.944Z"}
+{"level":"info","message":"POST - processing request","timestamp":"2017-12-14T03:23:40.956Z"}
+{"level":"info","message":"responding with a status of 200- sending recipe","timestamp":"2017-12-14T03:23:40.969Z"}
+{"level":"info","message":"Processing : GET on : /api/recipes","timestamp":"2017-12-14T03:23:41.043Z"}
+{"level":"info","message":"Processing : GET on : /api/recipes/5a31eebd4d40f849271e090e","timestamp":"2017-12-14T03:23:41.080Z"}
+{"level":"info","message":"GET - processing a request","timestamp":"2017-12-14T03:23:41.080Z"}
+{"level":"info","message":"Processing : PUT on : /api/recipes/5a31eebd4d40f849271e090f","timestamp":"2017-12-14T03:23:41.082Z"}
+{"level":"info","message":"GET - returning a 200 status code","timestamp":"2017-12-14T03:23:41.089Z"}
+{"level":"info","message":"Put - returning a 200 status code","timestamp":"2017-12-14T03:23:41.090Z"}
+{"level":"info","message":"Processing : DELETE on : /api/recipes/","timestamp":"2017-12-14T03:23:41.093Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T03:23:41.094Z"}
+{"level":"info","message":"Processing : DELETE on : /api/recipes/5a31eebd4d40f849271e0910","timestamp":"2017-12-14T03:23:41.098Z"}
+{"level":"info","message":"DELETE - returning a 204 status code","timestamp":"2017-12-14T03:23:41.100Z"}
+{"level":"info","message":"Processing : DELETE on : /api/recipes/","timestamp":"2017-12-14T03:23:41.103Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T03:23:41.103Z"}
+{"level":"info","message":"Server is off","timestamp":"2017-12-14T03:23:41.105Z"}
+{"level":"info","message":"Server is linstening on port 7000","timestamp":"2017-12-14T03:23:41.107Z"}
+{"level":"info","message":"Processing : POST on : /api/christmas-lists","timestamp":"2017-12-14T03:23:41.111Z"}
+{"level":"info","message":"POST - processing request","timestamp":"2017-12-14T03:23:41.111Z"}
+{"level":"info","message":"__ERROR_MIDDLEWARE__","timestamp":"2017-12-14T03:23:41.112Z"}
+{"message":"name, list, pricelimit, and secretsantat be defined","stack":"BadRequestError: name, list, pricelimit, and secretsantat be defined\n    at Object.<anonymous>.christmasListRouter.post (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/route/christmas-list-router.js:17:17)\n    at Layer.handle [as handle_request] (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/express/lib/router/route.js:137:13)\n    at /home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/body-parser/lib/read.js:130:5\n    at invokeCallback (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/raw-body/index.js:224:16)\n    at done (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/raw-body/index.js:213:7)\n    at IncomingMessage.onEnd (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/raw-body/index.js:273:7)\n    at emitNone (events.js:86:13)\n    at IncomingMessage.emit (events.js:185:7)\n    at endReadableNT (_stream_readable.js:974:12)\n    at _combinedTickCallback (internal/process/next_tick.js:80:11)\n    at process._tickCallback (internal/process/next_tick.js:104:9)","name":"BadRequestError","level":"info","timestamp":"2017-12-14T03:23:41.112Z"}
+{"level":"info","message":"responding with a 400 status and message: name, list, pricelimit, and secretsantat be defined","timestamp":"2017-12-14T03:23:41.113Z"}
+{"level":"info","message":"Processing : GET on : /api/christmas-lists","timestamp":"2017-12-14T03:23:41.188Z"}
+{"level":"info","message":"Processing : DELETE on : /api/christmas-lists/","timestamp":"2017-12-14T03:23:41.191Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T03:23:41.191Z"}
+{"level":"info","message":"Processing : DELETE on : /api/christmas-lists/","timestamp":"2017-12-14T03:23:41.199Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T03:23:41.199Z"}
+{"level":"info","message":"Server is off","timestamp":"2017-12-14T03:23:41.202Z"}
+{"level":"info","message":"Server is linstening on port 7000","timestamp":"2017-12-14T03:27:11.760Z"}
+{"level":"info","message":"Processing : POST on : /api/recipes","timestamp":"2017-12-14T03:27:11.795Z"}
+{"level":"info","message":"POST - processing request","timestamp":"2017-12-14T03:27:11.810Z"}
+{"level":"info","message":"responding with a status of 200- sending recipe","timestamp":"2017-12-14T03:27:11.824Z"}
+{"level":"info","message":"Processing : GET on : /api/recipes","timestamp":"2017-12-14T03:27:11.895Z"}
+{"level":"info","message":"Processing : GET on : /api/recipes/5a31ef8f61cf704a0affc7b4","timestamp":"2017-12-14T03:27:11.936Z"}
+{"level":"info","message":"GET - processing a request","timestamp":"2017-12-14T03:27:11.936Z"}
+{"level":"info","message":"Processing : PUT on : /api/recipes/5a31ef8f61cf704a0affc7b5","timestamp":"2017-12-14T03:27:11.938Z"}
+{"level":"info","message":"GET - returning a 200 status code","timestamp":"2017-12-14T03:27:11.945Z"}
+{"level":"info","message":"Put - returning a 200 status code","timestamp":"2017-12-14T03:27:11.946Z"}
+{"level":"info","message":"Processing : DELETE on : /api/recipes/","timestamp":"2017-12-14T03:27:11.950Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T03:27:11.951Z"}
+{"level":"info","message":"Processing : DELETE on : /api/recipes/5a31ef8f61cf704a0affc7b6","timestamp":"2017-12-14T03:27:11.955Z"}
+{"level":"info","message":"DELETE - returning a 204 status code","timestamp":"2017-12-14T03:27:11.957Z"}
+{"level":"info","message":"Processing : DELETE on : /api/recipes/","timestamp":"2017-12-14T03:27:11.960Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T03:27:11.960Z"}
+{"level":"info","message":"Server is off","timestamp":"2017-12-14T03:27:11.962Z"}
+{"level":"info","message":"Server is linstening on port 7000","timestamp":"2017-12-14T03:27:11.964Z"}
+{"level":"info","message":"Processing : POST on : /api/christmas-lists","timestamp":"2017-12-14T03:27:12.046Z"}
+{"level":"info","message":"POST - processing request","timestamp":"2017-12-14T03:27:12.047Z"}
+{"level":"info","message":"__ERROR_MIDDLEWARE__","timestamp":"2017-12-14T03:27:12.048Z"}
+{"message":"name, list, pricelimit, and secretsantat be defined","stack":"BadRequestError: name, list, pricelimit, and secretsantat be defined\n    at Object.<anonymous>.christmasListRouter.post (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/route/christmas-list-router.js:17:17)\n    at Layer.handle [as handle_request] (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/express/lib/router/route.js:137:13)\n    at /home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/body-parser/lib/read.js:130:5\n    at invokeCallback (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/raw-body/index.js:224:16)\n    at done (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/raw-body/index.js:213:7)\n    at IncomingMessage.onEnd (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/raw-body/index.js:273:7)\n    at emitNone (events.js:86:13)\n    at IncomingMessage.emit (events.js:185:7)\n    at endReadableNT (_stream_readable.js:974:12)\n    at _combinedTickCallback (internal/process/next_tick.js:80:11)\n    at process._tickCallback (internal/process/next_tick.js:104:9)","name":"BadRequestError","level":"info","timestamp":"2017-12-14T03:27:12.048Z"}
+{"level":"info","message":"responding with a 400 status and message: name, list, pricelimit, and secretsantat be defined","timestamp":"2017-12-14T03:27:12.048Z"}
+{"level":"info","message":"Processing : GET on : /api/christmas-lists","timestamp":"2017-12-14T03:27:12.049Z"}
+{"level":"info","message":"Processing : DELETE on : /api/christmas-lists/","timestamp":"2017-12-14T03:27:12.056Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T03:27:12.056Z"}
+{"level":"info","message":"Processing : DELETE on : /api/christmas-lists/","timestamp":"2017-12-14T03:27:12.062Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T03:27:12.062Z"}
+{"level":"info","message":"Server is off","timestamp":"2017-12-14T03:27:12.064Z"}
+{"level":"info","message":"Server is linstening on port 7000","timestamp":"2017-12-14T03:30:10.900Z"}
+{"level":"info","message":"Processing : POST on : /api/recipes","timestamp":"2017-12-14T03:30:10.938Z"}
+{"level":"info","message":"POST - processing request","timestamp":"2017-12-14T03:30:10.949Z"}
+{"level":"info","message":"responding with a status of 200- sending recipe","timestamp":"2017-12-14T03:30:10.964Z"}
+{"level":"info","message":"Processing : GET on : /api/recipes","timestamp":"2017-12-14T03:30:11.035Z"}
+{"level":"info","message":"Processing : GET on : /api/recipes/5a31f043228bd74aa86b8db7","timestamp":"2017-12-14T03:30:11.072Z"}
+{"level":"info","message":"GET - processing a request","timestamp":"2017-12-14T03:30:11.072Z"}
+{"level":"info","message":"Processing : PUT on : /api/recipes/5a31f043228bd74aa86b8db8","timestamp":"2017-12-14T03:30:11.074Z"}
+{"level":"info","message":"GET - returning a 200 status code","timestamp":"2017-12-14T03:30:11.082Z"}
+{"level":"info","message":"Put - returning a 200 status code","timestamp":"2017-12-14T03:30:11.083Z"}
+{"level":"info","message":"Processing : DELETE on : /api/recipes/","timestamp":"2017-12-14T03:30:11.088Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T03:30:11.089Z"}
+{"level":"info","message":"Processing : DELETE on : /api/recipes/5a31f043228bd74aa86b8db9","timestamp":"2017-12-14T03:30:11.093Z"}
+{"level":"info","message":"DELETE - returning a 204 status code","timestamp":"2017-12-14T03:30:11.095Z"}
+{"level":"info","message":"Processing : DELETE on : /api/recipes/","timestamp":"2017-12-14T03:30:11.097Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T03:30:11.097Z"}
+{"level":"info","message":"Server is off","timestamp":"2017-12-14T03:30:11.099Z"}
+{"level":"info","message":"Server is linstening on port 7000","timestamp":"2017-12-14T03:30:11.102Z"}
+{"level":"info","message":"Processing : POST on : /api/christmas-lists","timestamp":"2017-12-14T03:30:11.182Z"}
+{"level":"info","message":"POST - processing request","timestamp":"2017-12-14T03:30:11.183Z"}
+{"level":"info","message":"__ERROR_MIDDLEWARE__","timestamp":"2017-12-14T03:30:11.183Z"}
+{"message":"name, list, pricelimit, and secretsantat be defined","stack":"BadRequestError: name, list, pricelimit, and secretsantat be defined\n    at Object.<anonymous>.christmasListRouter.post (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/route/christmas-list-router.js:17:17)\n    at Layer.handle [as handle_request] (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/express/lib/router/route.js:137:13)\n    at /home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/body-parser/lib/read.js:130:5\n    at invokeCallback (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/raw-body/index.js:224:16)\n    at done (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/raw-body/index.js:213:7)\n    at IncomingMessage.onEnd (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/raw-body/index.js:273:7)\n    at emitNone (events.js:86:13)\n    at IncomingMessage.emit (events.js:185:7)\n    at endReadableNT (_stream_readable.js:974:12)\n    at _combinedTickCallback (internal/process/next_tick.js:80:11)\n    at process._tickCallback (internal/process/next_tick.js:104:9)","name":"BadRequestError","level":"info","timestamp":"2017-12-14T03:30:11.183Z"}
+{"level":"info","message":"responding with a 400 status and message: name, list, pricelimit, and secretsantat be defined","timestamp":"2017-12-14T03:30:11.184Z"}
+{"level":"info","message":"Processing : GET on : /api/christmas-lists","timestamp":"2017-12-14T03:30:11.184Z"}
+{"level":"info","message":"Processing : DELETE on : /api/christmas-lists/","timestamp":"2017-12-14T03:30:11.191Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T03:30:11.192Z"}
+{"level":"info","message":"Processing : DELETE on : /api/christmas-lists/","timestamp":"2017-12-14T03:30:11.198Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T03:30:11.198Z"}
+{"level":"info","message":"Server is off","timestamp":"2017-12-14T03:30:11.199Z"}
+{"level":"info","message":"Server is linstening on port 7000","timestamp":"2017-12-14T03:32:24.584Z"}
+{"level":"info","message":"Processing : POST on : /api/recipes","timestamp":"2017-12-14T03:32:24.618Z"}
+{"level":"info","message":"POST - processing request","timestamp":"2017-12-14T03:32:24.629Z"}
+{"level":"info","message":"responding with a status of 200- sending recipe","timestamp":"2017-12-14T03:32:24.648Z"}
+{"level":"info","message":"Processing : GET on : /api/recipes","timestamp":"2017-12-14T03:32:24.725Z"}
+{"level":"info","message":"Processing : GET on : /api/recipes/5a31f0c8434b254b7d7510ca","timestamp":"2017-12-14T03:32:24.762Z"}
+{"level":"info","message":"GET - processing a request","timestamp":"2017-12-14T03:32:24.762Z"}
+{"level":"info","message":"Processing : PUT on : /api/recipes/5a31f0c8434b254b7d7510cb","timestamp":"2017-12-14T03:32:24.765Z"}
+{"level":"info","message":"GET - returning a 200 status code","timestamp":"2017-12-14T03:32:24.771Z"}
+{"level":"info","message":"Put - returning a 200 status code","timestamp":"2017-12-14T03:32:24.773Z"}
+{"level":"info","message":"Processing : DELETE on : /api/recipes/","timestamp":"2017-12-14T03:32:24.777Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T03:32:24.778Z"}
+{"level":"info","message":"Processing : DELETE on : /api/recipes/5a31f0c8434b254b7d7510cc","timestamp":"2017-12-14T03:32:24.783Z"}
+{"level":"info","message":"DELETE - returning a 204 status code","timestamp":"2017-12-14T03:32:24.785Z"}
+{"level":"info","message":"Processing : DELETE on : /api/recipes/","timestamp":"2017-12-14T03:32:24.789Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T03:32:24.789Z"}
+{"level":"info","message":"Server is off","timestamp":"2017-12-14T03:32:24.791Z"}
+{"level":"info","message":"Server is linstening on port 7000","timestamp":"2017-12-14T03:32:24.794Z"}
+{"level":"info","message":"Processing : POST on : /api/christmas-lists","timestamp":"2017-12-14T03:32:24.800Z"}
+{"level":"info","message":"POST - processing request","timestamp":"2017-12-14T03:32:24.801Z"}
+{"level":"info","message":"__ERROR_MIDDLEWARE__","timestamp":"2017-12-14T03:32:24.802Z"}
+{"message":"name, list, pricelimit, and secretsantat be defined","stack":"BadRequestError: name, list, pricelimit, and secretsantat be defined\n    at Object.<anonymous>.christmasListRouter.post (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/route/christmas-list-router.js:17:17)\n    at Layer.handle [as handle_request] (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/express/lib/router/route.js:137:13)\n    at /home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/body-parser/lib/read.js:130:5\n    at invokeCallback (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/raw-body/index.js:224:16)\n    at done (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/raw-body/index.js:213:7)\n    at IncomingMessage.onEnd (/home/ncarignan/cf/401/lab-assignments/13-14-Relational-Modeling/lab-nicholasc/node_modules/raw-body/index.js:273:7)\n    at emitNone (events.js:86:13)\n    at IncomingMessage.emit (events.js:185:7)\n    at endReadableNT (_stream_readable.js:974:12)\n    at _combinedTickCallback (internal/process/next_tick.js:80:11)\n    at process._tickCallback (internal/process/next_tick.js:104:9)","name":"BadRequestError","level":"info","timestamp":"2017-12-14T03:32:24.802Z"}
+{"level":"info","message":"responding with a 400 status and message: name, list, pricelimit, and secretsantat be defined","timestamp":"2017-12-14T03:32:24.802Z"}
+{"level":"info","message":"Processing : GET on : /api/christmas-lists","timestamp":"2017-12-14T03:32:24.865Z"}
+{"level":"info","message":"Processing : GET on : /api/christmas-lists/5a31f0c8434b254b7d751132","timestamp":"2017-12-14T03:32:24.901Z"}
+{"level":"info","message":"GET - processing a request","timestamp":"2017-12-14T03:32:24.901Z"}
+{"level":"info","message":"Processing : PUT on : /api/christmas-lists/5a31f0c8434b254b7d751133","timestamp":"2017-12-14T03:32:24.902Z"}
+{"level":"info","message":"GET - returning a 200 status code","timestamp":"2017-12-14T03:32:24.904Z"}
+{"level":"info","message":"Put - returning a 200 status code","timestamp":"2017-12-14T03:32:24.905Z"}
+{"level":"info","message":"Processing : DELETE on : /api/christmas-lists/","timestamp":"2017-12-14T03:32:24.910Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T03:32:24.910Z"}
+{"level":"info","message":"Processing : DELETE on : /api/christmas-lists/5a31f0c8434b254b7d751134","timestamp":"2017-12-14T03:32:24.913Z"}
+{"level":"info","message":"DELETE - returning a 204 status code","timestamp":"2017-12-14T03:32:24.916Z"}
+{"level":"info","message":"Processing : DELETE on : /api/christmas-lists/","timestamp":"2017-12-14T03:32:24.919Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T03:32:24.920Z"}
+{"level":"info","message":"Server is off","timestamp":"2017-12-14T03:32:24.921Z"}

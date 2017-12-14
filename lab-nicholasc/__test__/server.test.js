@@ -30,12 +30,12 @@ const christmasListMockCreate = () => {
   return new ChristmasList({
     name : faker.name.findName(),
     list : faker.lorem.words(100),
-    pricelimit : faker.lorem.words(100),
+    pricelimit : faker.random.number(100),
     secretsanta : faker.name.findName(),
   }).save();
 };
 
-const recipeMockCreateMany = (howMany) => {
+const christmasListMockCreateMany = (howMany) => {
   return Promise.all(new Array(howMany)
     .fill(0)
     .map(() => {
@@ -140,10 +140,7 @@ describe('/api/christmas-lists', () => {
   describe('POST /api/christmas-lists', () => {
     test('should respond with a christmas list and 200 status code if there is no error',
       () =>{
-        let christmasListToPost = {
-          title : faker.lorem.words(10),
-          content : faker.lorem.words(100),
-        };
+        let christmasListToPost = christmasListMockCreate();
         return superagent.post(`${apiURL}/christmas-lists`)
           .send(christmasListToPost)
           .then(response => {
@@ -183,13 +180,14 @@ describe('/api/christmas-lists', () => {
       return christmasListMockCreate()
         .then(christmasList => {
           christmasListToUpdate = christmasList;
-          return superagent.put(`${apiURL}/christmas-lists/${recipe.id}`)
-            .send({title : 'grilled cheese'});
+          return superagent.put(`${apiURL}/christmas-lists/${christmasList.id}`)
+            .send({name : 'Nicholas Carignan'});
         })
         .then(response => {//only access to response but we want to test original
           expect(response.status).toEqual(200);
-          expect(response.body.title).toEqual('grilled cheese');
-          expect(response.body.content).toEqual(christmasListToUpdate.content);
+          expect(response.body.name).toEqual('grilled cheese');
+          expect(response.body.list).toEqual(christmasListToUpdate.list);
+          expect(response.body.pricelimit).toEqual(christmasListToUpdate.pricelimit);
           expect(response.body._id).toEqual(christmasListToUpdate.id.toString());
         });
     });
