@@ -12,9 +12,10 @@ const christmasListRouter = module.exports = new Router();
 
 christmasListRouter.post('/api/christmas-lists', jsonParser, (request, response, next) => {
   logger.log('info', 'POST - processing request');
-
-  if(!request.body.name || !request.body.list || !request.body.pricelimit || !request.body.secretsanta) {
-    return next(httpErrors(400, 'name, list, pricelimit, and secretsantat be defined'));
+  console.log(request.body);
+  // if(!request.body.name || !request.body.list || !request.body.pricelimit || !request.body.secretsanta) {
+  if(!request.body.name){
+    return next(httpErrors(400, 'name, list, pricelimit, and secretsanta to be defined'));
   }
   return new ChristmasList(request.body).save()
     .then(christmasList => {
