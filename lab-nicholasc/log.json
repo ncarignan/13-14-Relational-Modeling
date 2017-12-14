@@ -82,3 +82,45 @@
 {"level":"info","message":"Processing : DELETE on : /api/christmas-lists/","timestamp":"2017-12-14T03:47:30.339Z"}
 {"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T03:47:30.339Z"}
 {"level":"info","message":"Server is off","timestamp":"2017-12-14T03:47:30.341Z"}
+{"level":"info","message":"Server is linstening on port 7000","timestamp":"2017-12-14T19:19:28.781Z"}
+{"level":"info","message":"Processing : POST on : /api/recipes","timestamp":"2017-12-14T19:19:28.815Z"}
+{"level":"info","message":"POST - processing request","timestamp":"2017-12-14T19:19:28.826Z"}
+{"level":"info","message":"responding with a status of 200- sending recipe","timestamp":"2017-12-14T19:19:28.840Z"}
+{"level":"info","message":"Processing : DELETE on : /api/recipes/","timestamp":"2017-12-14T19:19:28.858Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T19:19:28.858Z"}
+{"level":"info","message":"Processing : DELETE on : /api/recipes/","timestamp":"2017-12-14T19:19:28.863Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T19:19:28.864Z"}
+{"level":"info","message":"Server is off","timestamp":"2017-12-14T19:19:28.867Z"}
+{"level":"info","message":"Server is linstening on port 7000","timestamp":"2017-12-14T19:19:28.869Z"}
+{"level":"info","message":"Processing : POST on : /api/christmas-lists","timestamp":"2017-12-14T19:19:28.876Z"}
+{"level":"info","message":"POST - processing request","timestamp":"2017-12-14T19:19:28.877Z"}
+{"level":"info","message":"responding with a status of 200- sending christmasList","timestamp":"2017-12-14T19:19:28.882Z"}
+{"level":"info","message":"Processing : DELETE on : /api/christmas-lists/","timestamp":"2017-12-14T19:19:28.888Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T19:19:28.889Z"}
+{"level":"info","message":"Processing : DELETE on : /api/christmas-lists/","timestamp":"2017-12-14T19:19:28.892Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T19:19:28.892Z"}
+{"level":"info","message":"Server is off","timestamp":"2017-12-14T19:19:28.894Z"}
+{"level":"info","message":"Server is linstening on port 7000","timestamp":"2017-12-14T19:19:29.217Z"}
+{"level":"info","message":"Server is off","timestamp":"2017-12-14T19:19:29.230Z"}
+{"level":"info","message":"Server is linstening on port 7000","timestamp":"2017-12-14T19:21:03.907Z"}
+{"level":"info","message":"Server is off","timestamp":"2017-12-14T19:21:03.944Z"}
+{"level":"info","message":"Server is linstening on port 7000","timestamp":"2017-12-14T19:21:04.429Z"}
+{"level":"info","message":"Processing : POST on : /api/recipes","timestamp":"2017-12-14T19:21:04.448Z"}
+{"level":"info","message":"POST - processing request","timestamp":"2017-12-14T19:21:04.459Z"}
+{"level":"info","message":"responding with a status of 200- sending recipe","timestamp":"2017-12-14T19:21:04.472Z"}
+{"level":"info","message":"Processing : DELETE on : /api/recipes/","timestamp":"2017-12-14T19:21:04.493Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T19:21:04.494Z"}
+{"level":"info","message":"Processing : DELETE on : /api/recipes/","timestamp":"2017-12-14T19:21:04.499Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T19:21:04.500Z"}
+{"level":"info","message":"Server is off","timestamp":"2017-12-14T19:21:04.502Z"}
+{"level":"info","message":"Server is linstening on port 7000","timestamp":"2017-12-14T19:21:04.503Z"}
+{"level":"info","message":"Processing : POST on : /api/christmas-lists","timestamp":"2017-12-14T19:21:04.508Z"}
+{"level":"info","message":"POST - processing request","timestamp":"2017-12-14T19:21:04.509Z"}
+{"level":"info","message":"responding with a status of 200- sending christmasList","timestamp":"2017-12-14T19:21:04.512Z"}
+{"level":"info","message":"Processing : DELETE on : /api/christmas-lists/","timestamp":"2017-12-14T19:21:04.518Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T19:21:04.518Z"}
+{"level":"info","message":"Processing : DELETE on : /api/christmas-lists/","timestamp":"2017-12-14T19:21:04.524Z"}
+{"level":"info","message":"returning a 404 from the catch-all route","timestamp":"2017-12-14T19:21:04.524Z"}
+{"level":"info","message":"Server is off","timestamp":"2017-12-14T19:21:04.526Z"}
+{"level":"info","message":"Server is linstening on port 7000","timestamp":"2017-12-14T19:21:31.461Z"}
+{"level":"info","message":"Server is off","timestamp":"2017-12-14T19:21:31.498Z"}

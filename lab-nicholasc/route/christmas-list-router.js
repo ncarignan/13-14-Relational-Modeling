@@ -1,9 +1,7 @@
 'use strict';
 
 const {Router} = require('express');
-
 const jsonParser = require('body-parser').json();
-
 const ChristmasList = require('../model/christmas-list');
 const logger = require('../lib/logger');
 const httpErrors = require('http-errors');
@@ -18,10 +16,46 @@ christmasListRouter.post('/api/christmas-lists', jsonParser, (request, response,
   return new ChristmasList(request.body).save()
     .then(christmasList => {
       logger.log('info', 'responding with a status of 200- sending christmasList');
-      response.json(christmasList);
+      return response.json(christmasList);
     })
     .catch(next);
+});//post matches 12/14 lecture format
+
+christmasListRouter.put('/api/christmas-lists/:id', jsonParser, (request, response, next) => {
+  let options = {runValidators : true, new : true};
+  return ChristmasList.findByIdAndUpdate(request.params.id, request.body, options)
+    .then(christmasList => {
+      if(!christmasList){
+        throw httpErrors(404, 'christmasList not found');
+      }
+      logger.log('info', 'Put - returning a 200 status code');
+      return response.json(christmasList);
+    }).catch(next);
+}); // this matches 12/14 lecture format
+
+christmasListRouter.get('/api/christmas-lists/:id', (request, response, next) => {
+  logger.log('info', 'GET - processing a request');
+  return ChristmasList.findById(request.params.id)
+    .then(christmasList => {
+      if(!christmasList){
+        throw httpErrors(404, 'christmasList not found');
+      }
+      logger.log('info', 'GET - returning a 200 status code');
+      return response.json(christmasList);
+    }).catch(next);
 });
+
+christmasListRouter.delete('/api/christmas-lists/:id', (request, response, next) => {
+  return ChristmasList.findByIdAndRemove(request.params.id)
+    .then(christmasList => {
+      if(!christmasList){
+        throw httpErrors(404, 'christmasList not found');
+      }
+      logger.log('info', 'DELETE - returning a 204 status code');
+      return response.sendStatus(204);
+    }).catch(next);
+});
+
 christmasListRouter.get('/api/christmas-lists/', (request, response, next) => {
   const PAGE_SIZE = 10;
   let {page = '0'} = request.query;
@@ -52,40 +86,4 @@ christmasListRouter.get('/api/christmas-lists/', (request, response, next) => {
       response.json(responseData);
     })
     .catch(next);
-});
-christmasListRouter.get('/api/christmas-lists/:id', (request, response, next) => {
-  logger.log('info', 'GET - processing a request');
-  return ChristmasList.findById(request.params.id)
-    .then(christmasList => {
-      if(!christmasList){
-        throw httpErrors(404, 'christmasList not found');
-      }
-      logger.log('info', 'GET - returning a 200 status code');
-      return response.json(christmasList);
-    }).catch(next);
-});
-
-christmasListRouter.delete('/api/christmas-lists/:id', (request, response, next) => {
-  return ChristmasList.findByIdAndRemove(request.params.id)
-    .then(christmasList => {
-      if(!christmasList){
-        throw httpErrors(404, 'christmasList not found');
-      }
-      logger.log('info', 'DELETE - returning a 204 status code');
-      return response.sendStatus(204);
-    }).catch(next);
-
-});
-christmasListRouter.put('/api/christmas-lists/:id', jsonParser, (request, response, next) => {
-  //this configures mongos update
-  let options = {runValidators : true, new : true};
-  return ChristmasList.findByIdAndUpdate(request.params.id, request.body, options)
-    .then(christmasList => {
-      if(!christmasList){
-        throw httpErrors(404, 'christmasList not found');
-      }
-      logger.log('info', 'Put - returning a 200 status code');
-      return response.json(christmasList);
-    }).catch(next);
-
 });

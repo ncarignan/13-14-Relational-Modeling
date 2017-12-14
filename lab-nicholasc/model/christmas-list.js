@@ -8,10 +8,10 @@ const christmasListSchema = mongoose.Schema({
     required : true,
     unique : true,
   },
-  list : {
-    type : String,
-    required : true,
-    minlength : 10,
+  list : [{type: String}],
+  timestamp : {
+    type : Date,
+    default : () => new Date(),
   },
   pricelimit : {
     type : Number,
@@ -22,6 +22,10 @@ const christmasListSchema = mongoose.Schema({
     required : true,
     unique : true,
   },
+  gifts : [{type : mongoose.Schema.Types.ObjectId,
+    ref : 'gift'}],
+},{
+  usePushEach : true, //pushes them in element by element instead of all at once
 });
 
 
