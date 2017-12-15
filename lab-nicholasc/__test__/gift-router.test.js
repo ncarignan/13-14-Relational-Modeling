@@ -113,20 +113,17 @@ describe('/api/gifts', () => {
   });
   describe('GET /api/gifts/:id', () => {
     test('should respond with gifts and 200 status code if there is no error', () =>{
-      let giftToTest = null;
+      let tempMock = null;
 
       return giftMock.create()
         .then(mock => {
-          giftToTest = mock.gift;
-          return superagent.get(`${apiURL}/${christmasList.id}`);
-
-        });
-      christmasListMockCreate()
-        .then(christmasList => {
-          return superagent.get(`${apiURL}/${christmasList.id}`);
+          tempMock = mock;
+          return superagent.get(`${apiURL}/${mock.gift.id}`);
         })
         .then(response => {
           expect(response.status).toEqual(200);
+          expect(response.body._id).toEqual(tempMock.gift._id.toString());
+          expect(response.body.timestamp).toBeTruthy();
         });
     });
   });
