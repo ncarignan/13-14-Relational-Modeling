@@ -14,8 +14,8 @@ const apiURL = `http://localhost:${process.env.PORT}/api/gifts`;
 
 describe('/api/gifts', () => {
   beforeAll(server.start);
+  afterEach(() => giftMock.remove({}));
   afterAll(server.stop);
-  afterEach(giftMock.remove);
 
   describe('POST /api/gifts', () => {
     test('should respond with a gift and 200 status code if there is no error', () =>{
@@ -29,11 +29,12 @@ describe('/api/gifts', () => {
             description : faker.lorem.words(10),
             christmasList : mock._id,
           };
+          console.log(giftToSend);
           return superagent.post(apiURL)
             .send(giftToSend)
             .then(response => {
               expect(response.status).toEqual(200);
-              expect(response.body.category).toEqual(tempChristmasListMock._id.toString());
+              expect(response.body._id).toEqual(tempChristmasListMock._id.toString());
             });
         });
     });
@@ -55,7 +56,7 @@ describe('/api/gifts', () => {
     test('should respond with 204 status code if there is no error', () =>{
       return giftMock.create()
         .then(mock => {
-          return superagent.delete(`${apiURL}/${mock.id}`);
+          return superagent.delete(`${apiURL}/${mock.gift.id}`);
         })
         .then(response => {
           expect(response.status).toEqual(204);
@@ -75,8 +76,8 @@ describe('/api/gifts', () => {
 
       return giftMock.create()
         .then(mock => {
-          giftToUpdate = mock;
-          return superagent.put(`${apiURL}/${mock.id}`)
+          giftToUpdate = mock.gift;
+          return superagent.put(`${apiURL}/${mock.gift.id}`)
             .send({name : 'Nicholas Carignan'});
         })
         .then(response => {//only access to response but we want to test original

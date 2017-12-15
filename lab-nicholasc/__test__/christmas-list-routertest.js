@@ -42,7 +42,7 @@ describe('/api/christmas-lists', () => {
         })
         .then(Promise.reject)
         .catch(response => {
-          console.log(response);
+          // console.log(response);
           expect(response.status).toEqual(409);
         });
     });

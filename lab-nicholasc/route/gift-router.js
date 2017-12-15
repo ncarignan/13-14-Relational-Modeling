@@ -11,8 +11,8 @@ const giftRouter = module.exports = new Router();
 
 giftRouter.post('/api/gifts', jsonParser, (request, response, next) => {
   logger.log('info', 'POST - processing request');
-  if(!request.body.name || !request.body.list || !request.body.pricelimit || !request.body.secretsanta) {
-    return next(httpErrors(400, 'name, list, pricelimit, and secretsanta to be defined'));
+  if(!request.body.name) {
+    return next(httpErrors(400, 'name must be defined'));
   }
   return new Gift(request.body).save()
     .then(gift => {
