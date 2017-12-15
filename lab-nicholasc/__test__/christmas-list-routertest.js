@@ -35,13 +35,14 @@ describe('/api/christmas-lists', () => {
           return superagent.post(apiURL)
             .send({
               name : christmasList.name,
-              list : christmasList.list,
-              pricelimit : christmasList.pricelimit,
-              secretsanta : christmasList.secretsanta,
+              list : [],
+              pricelimit : 100,
+              secretsanta : 'sam',
             });
         })
         .then(Promise.reject)
         .catch(response => {
+          console.log(response);
           expect(response.status).toEqual(409);
         });
     });
@@ -51,10 +52,10 @@ describe('/api/christmas-lists', () => {
   test('get :id 200 if no errors', () => {
     let tempChristmasListMock;
 
-    return tempChristmasListMock.create()
+    return christmasListMock.create()
       .then(christmasList => {
         tempChristmasListMock = christmasList;
-        return superagent.get(`${apiURL}/christmas-lists/${christmasList.id}`);
+        return superagent.get(`${apiURL}/${christmasList.id}`);
       })
       .then(response => {
         expect(response.status).toEqual(200);
@@ -77,9 +78,9 @@ describe('/api/christmas-lists', () => {
 
   describe('GET /api/christmas-lists', () => {
     test('should return 10 christmas lists where 10 is the size of the page by default if there is no error', () =>{
-      return christmasListMockCreateMany(100)
+      return christmasListMock.createMany(100)
         .then(() =>{
-          return superagent.get(`${apiURL}/christmas-lists`);
+          return superagent.get(apiURL);
         })
         .then(response => {
           expect(response.status).toEqual(200);
@@ -92,9 +93,9 @@ describe('/api/christmas-lists', () => {
   describe('GET /api/christmas-lists:id', () => {
     test('should respond with christmas lists and 200 status code if there is no error', () =>{
       let giftToTest = null;
-      christmasListMockCreate()
+      christmasListMock.create()
         .then(christmasList => {
-          return superagent.get(`${apiURL}/christmas-lists/${christmasList.id}`);
+          return superagent.get(`${apiURL}/${christmasList.id}`);
         })
         .then(response => {
           expect(response.status).toEqual(200);
@@ -105,22 +106,22 @@ describe('/api/christmas-lists', () => {
     test('should update and respond with 200 status code if there is no error', () =>{
       let christmasListToUpdate = null;
 
-      return christmasListMockCreate()
+      return christmasListMock.create()
         .then(christmasList => {
           christmasListToUpdate = christmasList;
-          return superagent.put(`${apiURL}/christmas-lists/${christmasList.id}`)
+          return superagent.put(`${apiURL}/${christmasList.id}`)
             .send({name : 'Nicholas Carignan'});
         })
         .then(response => {//only access to response but we want to test original
           expect(response.status).toEqual(200);
           expect(response.body.name).toEqual('Nicholas Carignan');
-          expect(response.body.list).toEqual(christmasListToUpdate.list);
+          expect(JSON.stringify(response.body.list)).toEqual(JSON.stringify(christmasListToUpdate.list));
           expect(response.body.pricelimit).toEqual(christmasListToUpdate.pricelimit);
           expect(response.body._id).toEqual(christmasListToUpdate.id.toString());
         });
     });
     test('should respond with a 404 error code if id invalid', () =>{
-      return superagent.delete(`${apiURL}/christmas-lists/`)
+      return superagent.delete(apiURL)
         .then(Promise.reject)
         .catch(response => {
           expect(response.status).toEqual(404);
@@ -129,16 +130,16 @@ describe('/api/christmas-lists', () => {
   });
   describe('DELETE /api/christmas-lists:id', () => {
     test('should respond with 204 status code if there is no error', () =>{
-      return christmasListMockCreate()
+      return christmasListMock.create()
         .then(christmasList => {
-          return superagent.delete(`${apiURL}/christmas-lists/${christmasList.id}`);
+          return superagent.delete(`${apiURL}/${christmasList.id}`);
         })
         .then(response => {
           expect(response.status).toEqual(204);
         });
     });
     test('should respond with a 404 error code if id invalid', () =>{
-      return superagent.delete(`${apiURL}/christmas-lists/`)
+      return superagent.delete(apiURL)
         .then(Promise.reject)
         .catch(response => {
           expect(response.status).toEqual(404);
