@@ -39,7 +39,7 @@ describe('/api/gifts', () => {
         });
     });
 
-    test.only('should respond with a 404 if the gift id is not present', () =>{
+    test('should respond with a 404 if the gift id is not present', () =>{
       return superagent.post(apiURL)
         .send({
           name : 'superman action figure',
